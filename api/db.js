@@ -1,4 +1,4 @@
-import mysql from "mysql"
+import mysql from "mysql2"
 
 export const db = mysql.createConnection ({
     host: "localhost",
@@ -6,4 +6,6 @@ export const db = mysql.createConnection ({
     password: "123@Mudar",
     database: "crud"
 });
+
+console.log("Conexão ok!")
 
