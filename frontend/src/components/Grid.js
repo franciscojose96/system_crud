@@ -42,10 +42,9 @@ export const Td = styled.td`
 `;
 
 const Grid = ({ users, setUsers, setOnEdit }) => {
-
   const handleEdit = (item) => {
     setOnEdit(item);
-  }
+  };
 
   const handleDelete = async (id) => {
     await axios
@@ -61,36 +60,36 @@ const Grid = ({ users, setUsers, setOnEdit }) => {
     setOnEdit(null);
   };
 
-    return ( <>
-        <Table>
-            <Thead>
-                <Tr>
-                    <Th>Nome</Th>
-                    <Th>Email</Th>
-                    <Th onlyweb>Fone</Th>
-                    <Th></Th>
-                    <Th></Th>
-                </Tr>
-            </Thead>
-            <Tbody>
-               {users.map((item, i) => (
-                <Tr key={i}>
-                    <Td width="30%">{item.nome}</Td>
-                    <Td width="30%">{item.email}</Td>
-                    <Td width="20%" onlyWeb>
-                        {item.fone}
-                    </Td>
-                    <Td alignCenter width="5%">
-                        <FaEdit onClick={() => handleEdit(item)} />
-                    </Td>
-                    <Td alignCenter width="5%">
-                        <FaTrash onClick={() => handleDelete(item.id)} />
-                    </Td>
-                </Tr>
-               ))}
-            </Tbody>
-        </Table>
-    </> );
-}
- 
+  return (
+    <Table>
+      <Thead>
+        <Tr>
+          <Th>Nome</Th>
+          <Th>Email</Th>
+          <Th onlyWeb>Fone</Th>
+          <Th></Th>
+          <Th></Th>
+        </Tr>
+      </Thead>
+      <Tbody>
+        {users.map((item, i) => (
+          <Tr key={i}>
+            <Td width="30%">{item.nome}</Td>
+            <Td width="30%">{item.email}</Td>
+            <Td width="20%" onlyWeb>
+              {item.fone}
+            </Td>
+            <Td alignCenter width="5%">
+              <FaEdit onClick={() => handleEdit(item)} />
+            </Td>
+            <Td alignCenter width="5%">
+              <FaTrash onClick={() => handleDelete(item.id)} />
+            </Td>
+          </Tr>
+        ))}
+      </Tbody>
+    </Table>
+  );
+};
+
 export default Grid;
